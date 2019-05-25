@@ -1,101 +1,108 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
+
 <head>
-<title>angularjs</title>
-<script src="lib/angular.js"></script>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <title>angularjs</title>
+        <script src="lib/angular.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
-<script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="app.js"></script>
 </head>
-<body>
-    <button ng-click="" type="button" class="btn btn-success">Add user</button>
 
-    <div ng-controller="storeController as strctrl">
-                <h3> User Info </h3>
-                <br>
-              <div ng-repeat="person in strctrl.persons">
-                 Name: {{person.name}}
-                 Age: {{person.age}}
-                 Job: {{person.job}}
-              </div>
+<body ng-controller="storeController as strctrl">
+
+        <div class="wrapper">
+                <div class="container">
+                        <button ng-click="addNewUser=true" type="button" class="btn btn-success float-right">Add user
+                        </button>
 
 
-      
-    <form ng-submit="strctrl.save()" class="card ">  
-            <div class="form-row">
-                    <div class="form-group col-md-6">
-                                <img src="./img/user.png" class="rounded float-left" alt="user-pic">
-                    </div>
-                        
-            </div>              
-        <div class="form-row">
-            <div class="form-group col-md-6">
-                    <label > First Name </label>
-                    <input ng-model="strctrl.show.fName" type="text" class="form-control" name="fName" >
-            </div>
-            <div class="form-group col-md-6">
-                    <label > Last Name </label>
-                    <input ng-model="strctrl.show.lName" type="text" class="form-control" name="lName" >
-            </div>
-            <div class="form-group col-md-6">
-                    <label > Language </label>
-                    <select ng-model="strctrl.show.lang" class="form-control" name="lang">
-                        <option ></option>
-                        <option>Arabic </option> 
-                        <option> English </option>
-                    </select>
-            </div>
-            <div class="form-group col-md-6">
-                    <label > Email </label>
-                    <input  ng-model="strctrl.show.email" type="text" class="form-control" name="email" >
-            </div> 
-            <div class="form-group col-md-12">
-                    <label >  </label>
-                    <input ng-model="strctrl.show.account" type="checkbox" name="account">  LocalAccount
+                        <table ng-show="addNewUser==false" class="table">
+                                <thead class="bg-primary">
+                                        <tr>
+                                                <th scope="col">UserName</th>
+                                                <th scope="col">Language</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Role</th>
+                                                <th scope="col">LocalAccount</th>
+                                                <th scope="col"></th>
+                                        </tr>
+                                </thead>
+                                <tbody>
+                                        <tr ng-repeat="person in persons track by $index">
+                                                <th scope="row">{{person.fName}} {{person.lName}}</th>
 
-            </div>
-            <div class="form-group col-md-12">
-                    <label > Role </label>
-                    <select ng-model="strctrl.show.role" class="form-control" name="role">
-                      <option ></option>
-                      <option>Admin </option> 
-                      <option> teacher </option>
-                      <option> student </option>
-                    </select> 
-                    </div>
+                                                <td> {{person.lang}} </td>
+                                                <td> {{person.email}} </td>
+                                                <td> {{person.role}} </td>
+                                                <td> {{person.account}} </td>
+                                                <td ng-click="edit(person)"> edit </td>
 
-    </form>
-    <button type="submit" class="btn btn-success" name="save" value="send"> Save </button> 
-    <button type="button" class="btn btn-light"> Cancel </button>
+                                        </tr>
+                                </tbody>
 
-</div>
+                        </table>
 
 
-                
+                        <div ng-show="addNewUser" class="row">
 
-<table class="table">
-                <thead class="bg-primary">
-                  <tr>
-                    <th scope="col">UserName</th>
-                    <th scope="col">Language</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Role</th>
-                    <th scope="col">LocalAccount</th>
-                  </tr>
-                 </thead>
-                 <tbody>
-                    <tr>
-                        <th scope="row">{{strctrl.show.fName}} {{strctrl.show.lName}}</th>
-                        
-                        <td> {{strctrl.show.lang}} </td>
-                        <td> {{strctrl.show.email}} </td>
-                        <td> {{strctrl.show.role}} </td>
-                        <td> {{strctrl.show.account}} </td>
-                    </tr>
-                    </tbody>
+                                <div class="col-md-3">
+                                        <img src="./img/user.png" class="rounded float-left" alt="user-pic">
+                                </div>
 
-        </table>
+                                <div class="col-md-9">
+                                        <form>
+
+                                                <div class="form-row">
+                                                        <div class="form-group col-md-6">
+                                                                <label> First Name </label>
+                                                                <input ng-model="show.fName" type="text" class="form-control" name="fName">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                                <label> Last Name </label>
+                                                                <input ng-model="show.lName" type="text" class="form-control" name="lName">
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                                <label> Language </label>
+                                                                <select ng-model="show.lang" class="form-control" name="lang">
+                                                                        <option></option>
+                                                                        <option>Arabic </option>
+                                                                        <option> English </option>
+                                                                </select>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                                <label> Email </label>
+                                                                <input ng-model="show.email" type="text" class="form-control" name="email">
+                                                        </div>
+                                                        <div class="form-group col-md-12">
+                                                                <label></label>
+                                                                <input ng-model="show.account" type="checkbox" name="account"> LocalAccount
+                                                        </div>
+
+                                        </form>
+
+                                        </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                        <label> Role </label>
+                                        <select ng-model="show.role" class="form-control" name="role">
+                                                <option></option>
+                                                <option>Admin </option>
+                                                <option> teacher </option>
+                                                <option> student </option>
+                                        </select>
+                                </div>
+                                <div class="col-md-12">
+                                        <div class="float-right">
+                                                <button type="submit" ng-click="save()" class="btn btn-success" name="save" value="send"> Save
+                                                </button>
+                                                <button ng-click="reset()" type="button" class="btn btn-light"> Cancel </button>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
 
 
 </body>
+
 </html>
