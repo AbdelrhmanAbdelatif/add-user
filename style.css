@@ -1,12 +1,19 @@
 
 body {
      margin: 0; 
+     padding: 50px;
     }
-
-body {
-     margin: 0; 
-     }
-
-.style {
-    border-radius: 2px;         
+     
+#style {
+    
+  border-radius: 25px;
+ /* margin: 10px;*/
+ 
+  
 }
+#stylee {
+    border: 2px solid  #e0e0d1;
+    border-radius: 25px;
+    
+}
+

@@ -5,19 +5,19 @@
         <title>angularjs</title>
         <script src="lib/angular.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-
+        <link rel="stylesheet" href="style.css">
         <script type="text/javascript" src="app.js"></script>
 </head>
 
 <body ng-controller="storeController as strctrl">
 
-        <div class="wrapper">
-                <div class="container">
-                        <button ng-click="addNewUser=true" type="button" class="btn btn-success float-right">Add user
+        <div class="wrapper ">
+                <div class="container ">
+                        <button ng-click="addNewUser=true" type="button" class="btn btn-success float-right " style="margin: 10px;" id="style">Add user
                         </button>
 
 
-                        <table ng-show="addNewUser==false" class="table">
+                        <table ng-show="addNewUser==false" class="table ">
                                 <thead class="bg-primary">
                                         <tr>
                                                 <th scope="col">UserName</th>
@@ -29,14 +29,14 @@
                                         </tr>
                                 </thead>
                                 <tbody>
-                                        <tr ng-repeat="person in persons track by $index">
-                                                <th scope="row">{{person.fName}} {{person.lName}}</th>
+                                        <tr ng-repeat="user in users track by $index">
+                                                <th scope="row">{{user.fName}} {{user.lName}}</th>
 
-                                                <td> {{person.lang}} </td>
-                                                <td> {{person.email}} </td>
-                                                <td> {{person.role}} </td>
-                                                <td> {{person.account}} </td>
-                                                <td ng-click="edit(person)"> edit </td>
+                                                <td> {{user.lang}} </td>
+                                                <td> {{user.email}} </td>
+                                                <td> {{user.role}} </td>
+                                                <td> {{user.account}} </td>
+                                                <td ng-click="edit(user)"  > <font color="#0000b3"> Edit </font> </td>
 
                                         </tr>
                                 </tbody>
@@ -47,32 +47,33 @@
                         <div ng-show="addNewUser" class="row">
 
                                 <div class="col-md-3">
-                                        <img src="./img/user.png" class="rounded float-left" alt="user-pic">
+                                       
+                                        <img src="./img/user.png" class="rounded float-left" alt="user-pic" width="100%">
                                 </div>
 
                                 <div class="col-md-9">
-                                        <form>
+                                        <form >
 
-                                                <div class="form-row">
+                                                <div class="form-row"  >
                                                         <div class="form-group col-md-6">
                                                                 <label> First Name </label>
-                                                                <input ng-model="show.fName" type="text" class="form-control" name="fName">
+                                                                <input ng-model="show.fName" type="text" class="form-control" name="fName" id="style">
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                                 <label> Last Name </label>
-                                                                <input ng-model="show.lName" type="text" class="form-control" name="lName">
+                                                                <input ng-model="show.lName" type="text" class="form-control" name="lName" id="stylee">
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                                 <label> Language </label>
-                                                                <select ng-model="show.lang" class="form-control" name="lang">
+                                                                <select ng-model="show.lang" class="form-control" name="lang" id="stylee">
                                                                         <option></option>
-                                                                        <option>Arabic </option>
+                                                                        <option> Arabic </option>
                                                                         <option> English </option>
                                                                 </select>
                                                         </div>
                                                         <div class="form-group col-md-6">
                                                                 <label> Email </label>
-                                                                <input ng-model="show.email" type="text" class="form-control" name="email">
+                                                                <input ng-model="show.email" type="text" class="form-control" name="email" id="stylee">
                                                         </div>
                                                         <div class="form-group col-md-12">
                                                                 <label></label>
@@ -85,22 +86,24 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                         <label> Role </label>
-                                        <select ng-model="show.role" class="form-control" name="role">
+                                        <select ng-model="show.role" class="form-control" name="role" id="stylee">
                                                 <option></option>
-                                                <option>Admin </option>
+                                                <option> Admin </option>
                                                 <option> teacher </option>
                                                 <option> student </option>
                                         </select>
                                 </div>
                                 <div class="col-md-12">
-                                        <div class="float-right">
-                                                <button type="submit" ng-click="save()" class="btn btn-success" name="save" value="send"> Save
+                                        <div class="float-right" >
+                                                <button type="submit" ng-click="save()" class="btn btn-success" name="save" value="send" id="stylee"  > Save
                                                 </button>
-                                                <button ng-click="reset()" type="button" class="btn btn-light"> Cancel </button>
+                                                <button ng-click="reset()" type="button" class="btn btn-light" id="stylee" > Cancel </button>
                                         </div>
                                 </div>
                         </div>
+                        
                 </div>
+                
 
 
 </body>

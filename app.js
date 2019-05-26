@@ -6,23 +6,23 @@ myApp.controller('storeController', function MyController($scope){
         lName:"",
         lang:"",
         email:"",
-        account:"",
+        account:"False",
         role:""
     };
-    $scope.persons = [];
+    $scope.users = [];
     $scope.addNewUser=false;
     $scope.edit_mode=false;
 
     $scope.save = function(){
         if($scope.edit_mode==false){
-            var person = angular.copy($scope.show);
-            $scope.persons.push(person);    
+            var user = angular.copy($scope.show);
+            $scope.users.push(user);    
         }
         $scope.reset();
     }
 
-    $scope.edit=function(person){
-        $scope.show=person;
+    $scope.edit=function(user){
+        $scope.show=user;
         $scope.addNewUser=true;
         $scope.edit_mode=true;
     }
@@ -35,7 +35,7 @@ myApp.controller('storeController', function MyController($scope){
             lName:"",
             lang:"",
             email:"",
-            account:"",
+            account:"False",
             role:""
         };
     }
