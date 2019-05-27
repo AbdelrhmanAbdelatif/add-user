@@ -1,0 +1,24 @@
+
+body {
+   
+    padding: 50px;
+   }
+    
+#style {
+   
+ border-radius: 25px;
+
+
+ 
+}
+#bt-style {
+   border: 2px solid  #e0e0d1;
+   border-radius: 25px;
+   
+}
+
+.form_container{
+background:#efefef;
+padding:25px 15px;
+}
+
